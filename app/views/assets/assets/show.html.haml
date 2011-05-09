@@ -1,0 +1,15 @@
+%h1 
+ = "Asset #{@asset.barcode}"
+ 
+%ul
+ %li 
+  = "Storage Area #{@asset.storage_area.try(:name)}"
+ %li
+  = "Freezer #{@asset.storage_area.try(:freezer).try(:name)}"
+ %li
+  = "Building area #{@asset.storage_area.try(:freezer).try(:building_area).try(:name)}"
+ %li 
+  = link_to "Download asset details", assets_spreadsheet_asset_path(@asset)
+
+= render :partial => '/assets/assets/assets_list', :locals => { :assets => @asset.contained_assets }
+

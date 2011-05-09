@@ -1,0 +1,15 @@
+%table#freezers
+ %thead
+  %tr
+   %th Name
+   %th Building area
+   %th Number of storage areas
+ %tbody
+  - freezers.each  do |freezer|
+   %tr
+    %td
+     = link_to "#{freezer.name}", freezer_path(freezer)
+    %td
+     = link_to "#{freezer.building_area.try(:name) }", building_area_path(freezer.building_area)
+    %td 
+     = freezer.storage_areas.count

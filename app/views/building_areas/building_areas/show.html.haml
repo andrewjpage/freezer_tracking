@@ -1,0 +1,8 @@
+%h1 
+ = "Building Area #{@building_area.name}"
+ 
+%ul
+ %li 
+  = link_to "Download asset details", assets_spreadsheet_building_area_path(@building_area)
+
+= render :partial => '/freezers/freezers/freezers_list', :locals => { :freezers => @building_area.freezers }
