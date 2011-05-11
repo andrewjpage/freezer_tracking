@@ -37,6 +37,9 @@ FreezerTracking::Application.routes.draw do
       get :assets_spreadsheet
     end
   end
+  
+  resources :receptions, :only => [:index, :create] 
+  resources :asset_audits, :only => [:index]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

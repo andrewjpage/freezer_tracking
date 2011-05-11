@@ -1,0 +1,33 @@
+= will_paginate @asset_audits
+
+%table#asset_audits
+ %thead
+  %tr
+   %th Barcode
+   %th Container
+   %th Storage area
+   %th Freezer
+   %th Building area
+   %th User
+   %th Action
+   %th Date
+ %tbody
+  - @asset_audits.each  do |asset_audit|
+   %tr
+    %td
+     = link_to "#{asset_audit.asset.try(:barcode)}", asset_path(asset_audit.asset)
+    %td
+     = asset_audit.container_barcode
+    %td
+     = asset_audit.storage_area_name
+    %td
+     = asset_audit.freezer_name
+    %td
+     = asset_audit.building_area_name
+    %td
+     = asset_audit.user_login
+    %td
+     = asset_audit.action
+    %td
+     = asset_audit.created_at.to_s(:short)
+= will_paginate @asset_audits

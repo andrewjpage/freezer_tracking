@@ -1,7 +1,7 @@
 class Assets::AssetsController < ApplicationController
  
   def index
-    @assets = Asset.all
+    @assets = Asset.all.paginate(:page => params[:page])
     respond_to do |format|
       format.html
     end
@@ -10,6 +10,7 @@ class Assets::AssetsController < ApplicationController
   
   def show
     @asset = Asset.find(params[:id])
+    @assets = @asset.contained_assets.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html

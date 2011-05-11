@@ -1,9 +1,13 @@
-
 %ul
- %li 
+ %li
   = link_to 'Building areas', building_areas_path
- %li 
+ %li
   = link_to 'Freezers', freezers_path
- %li 
+ %li
   = link_to 'Storage areas', storage_areas_path
-      
+ %li
+  = link_to 'Recent activity', asset_audits_path
+
+= render :partial => 'asset_scanning'
+= render :partial => 'errors', :locals => { :errors => @reception.errors }
+

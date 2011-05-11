@@ -1,7 +1,7 @@
 class Freezers::FreezersController < ApplicationController
  
   def index
-    @freezers = Freezer.all
+    @freezers = Freezer.all.paginate(:page => params[:page])
     respond_to do |format|
       format.html
     end
@@ -10,6 +10,7 @@ class Freezers::FreezersController < ApplicationController
   
   def show
     @freezer = Freezer.find(params[:id], :include => [:storage_areas])
+    @storage_areas = @freezer.storage_areas.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html

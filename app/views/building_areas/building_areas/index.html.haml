@@ -1,5 +1,7 @@
 %h1 "Building Areas"
 
+=will_paginate @building_areas
+
 %table#building_areas
  %thead
   %tr
@@ -12,4 +14,4 @@
      = link_to "#{building_area.name}", building_area_path(building_area)
     %td 
      = building_area.freezers.count
-
+= will_paginate @building_areas

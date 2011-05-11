@@ -1,7 +1,7 @@
 class BuildingAreas::BuildingAreasController < ApplicationController
  
   def index
-    @building_areas = BuildingArea.all
+    @building_areas = BuildingArea.all.paginate :page => params[:page]
     respond_to do |format|
       format.html
     end
@@ -10,6 +10,7 @@ class BuildingAreas::BuildingAreasController < ApplicationController
   
   def show
     @building_area = BuildingArea.find(params[:id], :include => [:freezers])
+    @freezers = @building_area.freezers.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html

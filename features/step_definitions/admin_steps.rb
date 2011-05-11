@@ -2,7 +2,7 @@ Given /^I am logged in as an administrator$/ do
   #pending # express the regexp above with the code you wish you had
 end
 
-Then /^the list of (building areas|freezers|storage areas|assets|dirty racks|recent activity) should be:$/ do |name, expected_table|
+Then /^the list of (building areas|freezers|storage areas|assets|dirty racks|asset audits) should be:$/ do |name, expected_table|
   table_name = name.gsub(/ /, '_')
   expected_table.diff!(table(tableish("##{table_name} tr", 'td,th')))
 end

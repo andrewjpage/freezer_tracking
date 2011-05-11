@@ -1,3 +1,5 @@
+= will_paginate @assets
+
 %table#assets
  %thead
   %tr
@@ -9,19 +11,21 @@
    %th Number of contained assets
    %th Map
  %tbody
-  - assets.each  do |asset|
+  - @assets.each  do |asset|
    %tr
     %td
      = link_to "#{asset.barcode}", asset_path(asset)
     %td
-     = link_to "#{asset.container.try(:barcode)}", asset_path(asset.container) 
+     = link_to "#{asset.container.try(:barcode)}", asset_path(asset.container)
     %td
      = link_to "#{asset.storage_area.try(:name)}", storage_area_path(asset.storage_area)
     %td
      = link_to "#{asset.storage_area.try(:freezer).try(:name)}", freezer_path(asset.storage_area.try(:freezer))
     %td
      = link_to "#{asset.storage_area.try(:freezer).try(:building_area).try(:name)}", freezer_path(asset.storage_area.try(:freezer).try(:building_area))
-    %td 
+    %td
      = asset.contained_assets.count
-    %td 
+    %td
      = asset.map.try(:description)
+
+= will_paginate @assets

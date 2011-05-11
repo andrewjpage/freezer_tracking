@@ -1,7 +1,7 @@
 class StorageAreas::StorageAreasController < ApplicationController
  
   def index
-    @storage_areas = StorageArea.all
+    @storage_areas = StorageArea.all.paginate(:page => params[:page])
     respond_to do |format|
       format.html
     end
@@ -10,6 +10,7 @@ class StorageAreas::StorageAreasController < ApplicationController
   
   def show
     @storage_area = StorageArea.find(params[:id], :include => [:assets])
+    @assets = @storage_area.assets.paginate(:page => params[:page])
 
     respond_to do |format|
       format.html

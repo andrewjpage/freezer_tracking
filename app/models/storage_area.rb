@@ -1,4 +1,6 @@
 class StorageArea < ActiveRecord::Base
+  cattr_reader :per_page
+  @@per_page = 200
   belongs_to :freezer
   has_many :assets
   
