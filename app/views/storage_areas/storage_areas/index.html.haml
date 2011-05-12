@@ -1,4 +1,6 @@
 %h1 "Storage areas"
 
-= render :partial => 'storage_areas_list'
+= will_paginate @storage_areas
+= render :partial => 'storage_areas_list', :locals => {:storage_areas => @storage_areas}
+= will_paginate @storage_areas
 

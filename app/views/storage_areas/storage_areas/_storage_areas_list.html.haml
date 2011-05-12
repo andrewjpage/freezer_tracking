@@ -1,4 +1,3 @@
-= will_paginate @storage_areas
 %table#storage_areas
  %thead
   %tr
@@ -8,17 +7,16 @@
    %th Building area
    %th Number of assets
  %tbody
-  - @storage_areas.each  do |storage_area|
+  - storage_areas.each  do |storage_area|
    %tr
     %td
      = link_to "#{storage_area.name}", storage_area_path(storage_area)
     %td
      = storage_area.barcode
     %td
-     = link_to "#{storage_area.freezer.try(:name)}", freezer_path(storage_area.freezer)
+     = link_to "#{storage_area.freezer.try(:name)}", freezer_path(storage_area.freezer) if storage_area.freezer
     %td
-     = link_to "#{storage_area.freezer.try(:building_area).try(:name)}", building_area_path(storage_area.freezer.try(:building_area))
+     = link_to "#{storage_area.freezer.try(:building_area).try(:name)}", building_area_path(storage_area.freezer.try(:building_area)) if storage_area.freezer.try(:building_area)
     %td 
      = storage_area.assets.count
-= will_paginate @storage_areas
      

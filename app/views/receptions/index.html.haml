@@ -7,6 +7,8 @@
   = link_to 'Storage areas', storage_areas_path
  %li
   = link_to 'Recent activity', asset_audits_path
+ %li 
+  = link_to 'Advanced Search', searches_path
 
 = render :partial => 'asset_scanning'
 = render :partial => 'errors', :locals => { :errors => @reception.errors }

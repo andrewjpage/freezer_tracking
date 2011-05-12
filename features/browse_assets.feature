@@ -6,7 +6,7 @@ Feature: Browser contents building areas, freezers, and storage areas
       And freezer "Freezer456" is contained in building area "Room123"
       And storage area "Shelf1" is contained in freezer "Freezer456"
       And asset "123456" is contained in storage area "Shelf1"
-      And asset "987654" with location "A1" is contained in asset "123456"
+      And asset "4360133339849" with location "A1" is contained in asset "123456"
       
     Given building area "AnotherRoom" exists
       And freezer "AnotherFreezer" is contained in building area "AnotherRoom"
@@ -90,7 +90,7 @@ Feature: Browser contents building areas, freezers, and storage areas
     When I follow "123456"
     Then the list of assets should be:
       | Barcode | Container | Number of contained assets | Map |
-      | 987654  | 123456    | 0                          | A1  |
+      | 4360133339849  | 123456    | 0                          | A1  |
   
   @asset_report @building_area
   Scenario: Report with list of all assets within building area
@@ -127,7 +127,6 @@ Feature: Browser contents building areas, freezers, and storage areas
       And I follow "123456"
       And I follow "Download asset details"
     Then I should see the asset report:
-      | Barcode | Container |  Number of contained assets | Map |
-      | 987654  | 123456    |  0                          | A1  |
+      | Barcode       | Decoded prefix | Decoded barcode number | Container | Number of contained assets | Map |
+      | 4360133339849 | PD             | 133339                 | 123456    | 0                          | A1  |
 
-  

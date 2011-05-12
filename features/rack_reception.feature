@@ -18,8 +18,8 @@ Feature: Check rack layouts in and out
       And I press "Submit"
     Then I should see "Uploaded rack"
     When I follow "Recent activity"
-    Then the list of recent activity should be:
-      | Asset | Container| Storage area | Freezer    | Building Area | User | Action   | Time         | Map |
+    Then the list of asset audits should be:
+      | Barcode | Container| Storage area | Freezer    | Building area | User | Action   | Date         | Map |
       | 555   | 123456   | Shelf1       | Freezer456 | Room123       | john | Check in | 10 May 11:00 | A1  |
       | 666   | 123456   | Shelf1       | Freezer456 | Room123       | john | Check in | 10 May 11:00 | B2  |
       | 777   | 123456   | Shelf1       | Freezer456 | Room123       | john | Check in | 10 May 11:00 | H12 |
@@ -69,11 +69,11 @@ Feature: Check rack layouts in and out
     Then I should see "Uploaded rack but other racks need to be scanned"
       And I should see "Racks which need to have layout rescanned"
     Then the list of dirty racks should be:
-      | Container    | Storage area | Freezer    | Building Area |
+      | Container    | Storage area | Freezer    | Building area |
       | another_rack | Shelf1       | Freezer456 | Room123       |
     When I follow "Recent activity"
-    Then the list of recent activity should be:
-      | Asset | Container| Storage area | Freezer    | Building Area | User | Action   | Time         | Map |
+    Then the list of asset audits should be:
+      | Barcode | Container| Storage area | Freezer    | Building area | User | Action   | Date         | Map |
       | 555   | 123456   | Shelf1       | Freezer456 | Room123       | john | Check in | 10 May 11:00 | A1  |
       | 666   | 123456   | Shelf1       | Freezer456 | Room123       | john | Check in | 10 May 11:00 | B2  |
       | 777   | 123456   | Shelf1       | Freezer456 | Room123       | john | Check in | 10 May 11:00 | H12 |
@@ -86,8 +86,8 @@ Feature: Check rack layouts in and out
       And I press "Submit"
     Then I should see "Uploaded rack but rack is not checked into a storage area"
     When I follow "Recent activity"
-    Then the list of recent activity should be:
-      | Asset | Container | Storage area | Freezer | Building Area | User | Action   | Time         | Map |
+    Then the list of asset audits should be:
+      | Barcode | Container | Storage area | Freezer | Building area | User | Action   | Date         | Map |
       | 555   | 123456    |              |         |               | john | Check in | 10 May 11:00 | A1  |
       | 666   | 123456    |              |         |               | john | Check in | 10 May 11:00 | B2  |
       | 777   | 123456    |              |         |               | john | Check in | 10 May 11:00 | H12 |
@@ -100,8 +100,8 @@ Feature: Check rack layouts in and out
       And I press "Submit"
     Then I should see "Uploaded rack"
     When I follow "Recent activity"
-    Then the list of recent activity should be:
-      | Asset |  Map |
+    Then the list of asset audits should be:
+      | Barcode |  Map |
       | 555   |  A1  |
       | 666   |  B2  |
       | 777   |  H12 |
@@ -111,8 +111,8 @@ Feature: Check rack layouts in and out
       And I attach the file "test/data/valid_rearray_rack_file.csv" to "rack_layout"
       And I press "Submit"
     When I follow "Recent activity"
-    Then the list of recent activity should be:
-      | Asset | Container | Storage area | Freezer    | Building Area | User | Action    | Time         | Map |
+    Then the list of asset audits should be:
+      | Barcode | Container | Storage area | Freezer    | Building area | User | Action    | Date         | Map |
       | 777   | 98765     |              |            |               | john | Check in  | 10 May 11:00 | A1  |
       | 555   | 98765     |              |            |               | john | Check in  | 10 May 11:00 | B2  |
       | 666   | 98765     |              |            |               | john | Check in  | 10 May 11:00 | H12 |
@@ -127,7 +127,7 @@ Feature: Check rack layouts in and out
     Given rack "98765" is flagged as dirty
     When I follow "Racks which need to have layout rescanned"
     Then the list of dirty racks should be:
-      | Container | Storage area | Freezer | Building Area |
+      | Container | Storage area | Freezer | Building area |
       | 98765     |              |         |               |
     When I follow "Scan rack layout"
     When I fill in "User Barcode" with "888"
@@ -137,6 +137,6 @@ Feature: Check rack layouts in and out
     Then I should see "Uploaded rack"
     When I follow "Racks which need to have layout rescanned"
     Then the list of dirty racks should be:
-      | Container | Storage area | Freezer | Building Area |
+      | Container | Storage area | Freezer | Building area |
 
   

@@ -1,4 +1,3 @@
-= will_paginate @freezers
 %table#freezers
  %thead
   %tr
@@ -6,13 +5,13 @@
    %th Building area
    %th Number of storage areas
  %tbody
-  - @freezers.each  do |freezer|
+  - freezers.each  do |freezer|
    %tr
     %td
      = link_to "#{freezer.name}", freezer_path(freezer)
     %td
-     = link_to "#{freezer.building_area.try(:name) }", building_area_path(freezer.building_area)
+     = link_to "#{freezer.building_area.try(:name) }", building_area_path(freezer.building_area) if freezer.building_area
     %td 
      = freezer.storage_areas.count
-= will_paginate @freezers
+
      

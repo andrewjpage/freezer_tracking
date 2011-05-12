@@ -1,0 +1,5 @@
+= semantic_form_for(:search, :url => search_searches_path, :html => { :method => :post } ) do |f|
+ = f.inputs :name => 'Search' do
+  = f.input :query, :label => "Search query"
+ = f.buttons do
+  %input{:type => :submit, :value => "Search"}

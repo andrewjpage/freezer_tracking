@@ -1,6 +1,6 @@
 class AssetReport 
   def self.headers
-    ["Barcode", "Container", "Storage area", "Freezer", "Building area", "Number of contained assets", "Map"]
+    ["Barcode", "Decoded prefix", "Decoded barcode number", "Container", "Storage area", "Freezer", "Building area", "Number of contained assets", "Map"]
   end
   
   def self.generate(assets)
@@ -8,6 +8,8 @@ class AssetReport
       csv << headers
       assets.each do |asset|
         csv << [asset.barcode, 
+          asset.decoded_prefix,
+          asset.decoded_barcode_number,
           asset.container.try(:barcode), 
           asset.storage_area.try(:name), 
           asset.storage_area.try(:freezer).try(:name),

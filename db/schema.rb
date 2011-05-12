@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110511133313) do
+ActiveRecord::Schema.define(:version => 20110512143729) do
 
   create_table "asset_audits", :force => true do |t|
     t.integer  "asset_id"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(:version => 20110511133313) do
     t.datetime "updated_at"
   end
 
+  add_index "building_areas", ["name"], :name => "index_building_areas_on_name"
+
   create_table "freezers", :force => true do |t|
     t.string   "name"
     t.integer  "building_area_id"
@@ -79,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20110511133313) do
   end
 
   add_index "freezers", ["building_area_id"], :name => "index_freezers_on_building_area_id"
+  add_index "freezers", ["name"], :name => "index_freezers_on_name"
 
   create_table "maps", :force => true do |t|
     t.string   "description"
@@ -98,5 +101,6 @@ ActiveRecord::Schema.define(:version => 20110511133313) do
 
   add_index "storage_areas", ["barcode"], :name => "index_storage_areas_on_barcode"
   add_index "storage_areas", ["freezer_id"], :name => "index_storage_areas_on_freezer_id"
+  add_index "storage_areas", ["name"], :name => "index_storage_areas_on_name"
 
 end

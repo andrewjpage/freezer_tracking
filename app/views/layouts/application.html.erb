@@ -12,6 +12,8 @@
   <%= content_tag(:div, flash[flash_type], :class => 'flash', :id => "message_#{  flash_type}") %>
 <% end %>
 
+<%= render :partial => '/searches/quick_search' %>
+
 <%= yield %>
 <%= yield :page_javascript %>
 

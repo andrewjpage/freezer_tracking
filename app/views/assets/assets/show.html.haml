@@ -11,5 +11,7 @@
  %li 
   = link_to "Download asset details", assets_spreadsheet_asset_path(@asset)
 
-= render :partial => '/assets/assets/assets_list'
+= will_paginate @assets
+= render :partial => '/assets/assets/assets_list', :locals => { :assets => @assets }
+= will_paginate @assets
 

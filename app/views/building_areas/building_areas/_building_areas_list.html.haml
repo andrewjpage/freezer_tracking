@@ -1,0 +1,12 @@
+%table#building_areas
+ %thead
+  %tr
+   %th Name
+   %th Number of freezers
+ %tbody
+  - building_areas.each  do |building_area|
+   %tr
+    %td
+     = link_to "#{building_area.name}", building_area_path(building_area) if building_area
+    %td 
+     = building_area.freezers.count

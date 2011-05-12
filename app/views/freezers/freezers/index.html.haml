@@ -1,4 +1,5 @@
 %h1 "Freezers"
-
-= render :partial => 'freezers_list'
+= will_paginate @freezers
+= render :partial => 'freezers_list', :locals => { :freezers => @freezers }
+= will_paginate @freezers
 

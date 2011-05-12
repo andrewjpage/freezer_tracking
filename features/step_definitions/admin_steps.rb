@@ -28,5 +28,5 @@ end
 
 Given /^asset "([^"]*)" is contained in storage area "([^"]*)"$/ do |asset_barcode, storage_area_name|
   storage_area = StorageArea.find_by_name(storage_area_name)
-  Factory :asset_without_associations, :barcode => "123456", :storage_area => storage_area
+  Factory :asset_without_associations, :barcode => asset_barcode, :storage_area => storage_area
 end

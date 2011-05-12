@@ -5,4 +5,7 @@
  %li 
   = link_to "Download asset details", assets_spreadsheet_building_area_path(@building_area)
 
-= render :partial => '/freezers/freezers/freezers_list'
+= will_paginate @freezers
+= render :partial => '/freezers/freezers/freezers_list', :locals => { :freezers => @freezers }
+= will_paginate @freezers
+
