@@ -12,8 +12,7 @@ class BuildingArea < ActiveRecord::Base
   scope :for_search_query, lambda { |search_terms| { :conditions => [ 'name IN (?)', search_terms ] } }
  
   def assets
-    # TODO replace with single query
-    freezers.map(&:assets).flatten
+    Asset.joins( :storage_area => { :freezer => :building_area } ).where( :building_areas => { :id => self.id } )
   end
   
 end

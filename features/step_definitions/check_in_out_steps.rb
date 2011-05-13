@@ -17,7 +17,7 @@ Given /^user "([^"]*)" with barcode '(\d+)' exists$/ do |user_name, barcode|
 end
 
 Given /^rack "([^"]*)" is flagged as dirty$/ do |asset_barcode|
-  Asset.find_by_barcode(asset_barcode).update_attributes!(:dirty => true)
+  Asset.find_by_barcode(asset_barcode).update_attributes!(:dirty_layout => true)
 end
 
 Given /^an asset with barcode "([^"]*)" exists$/ do |asset_barcode|

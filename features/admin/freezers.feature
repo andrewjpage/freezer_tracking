@@ -1,4 +1,4 @@
-@freezer
+@freezer @wip
 Feature: Admin the freezers
 
   Background:

@@ -37,3 +37,8 @@ rescue NameError
   raise "You need to add database_cleaner to your Gemfile (in the :test group) if you wish to use it."
 end
 
+After do |s|
+  # If we're lost in time then we need to return to the present...
+  Timecop.return
+end
+

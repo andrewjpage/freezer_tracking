@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110512143729) do
+ActiveRecord::Schema.define(:version => 20110513121403) do
 
   create_table "asset_audits", :force => true do |t|
     t.integer  "asset_id"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20110512143729) do
     t.string   "action"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "map_description"
   end
 
   add_index "asset_audits", ["asset_id"], :name => "index_asset_audits_on_asset_id"

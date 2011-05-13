@@ -1,11 +1,11 @@
 class ReceptionsController < ApplicationController
   
   def index
-    @reception = Reception::Base.new
+    @reception = Reception::Standard::Base.new
   end
   
   def create
-    @reception = Reception::Base.new(params[:reception])
+    @reception = Reception::Standard::Base.new(params[:reception])
 
     respond_to do |format|
       if @reception.valid?

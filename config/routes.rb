@@ -39,6 +39,9 @@ FreezerTracking::Application.routes.draw do
   end
   
   resources :receptions, :only => [:index, :create] 
+  resources :rack_receptions, :only => [:index, :create] 
+  resources :rescan_racks, :only => [:index]
+  
   resources :asset_audits, :only => [:index]
   resources :searches, :only => [:index] do 
     collection do 

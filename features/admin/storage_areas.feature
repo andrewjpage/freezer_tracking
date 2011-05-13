@@ -1,3 +1,4 @@
+@storage_areas @wip
 Feature: Admin storage areas
 
   Background:

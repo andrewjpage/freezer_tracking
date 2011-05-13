@@ -1,4 +1,4 @@
-@building_area
+@building_area @wip
 Feature: Admin the building areas
 
   Background:

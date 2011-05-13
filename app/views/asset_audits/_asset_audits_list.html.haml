@@ -5,6 +5,7 @@
   %tr
    %th Barcode
    %th Container
+   %th Map
    %th Storage area
    %th Freezer
    %th Building area
@@ -18,6 +19,8 @@
      = link_to "#{asset_audit.asset.try(:barcode)}", asset_path(asset_audit.asset)
     %td
      = asset_audit.container_barcode
+    %td
+     = asset_audit.map_description
     %td
      = asset_audit.storage_area_name
     %td

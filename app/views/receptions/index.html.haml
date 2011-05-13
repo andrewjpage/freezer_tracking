@@ -9,6 +9,8 @@
   = link_to 'Recent activity', asset_audits_path
  %li 
   = link_to 'Advanced Search', searches_path
+ %li 
+  = link_to 'Racks', rack_receptions_path
 
 = render :partial => 'asset_scanning'
 = render :partial => 'errors', :locals => { :errors => @reception.errors }

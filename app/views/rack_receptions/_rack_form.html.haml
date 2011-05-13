@@ -1,0 +1,9 @@
+= semantic_form_for(:reception, :url => rack_receptions_path, :html => { :method => :post, :multipart => true } ) do |f|
+ = f.inputs :name => 'Upload rack layout' do
+  = f.input :user_barcode, :label => "User Barcode"
+  = f.input :rack_barcode, :label => 'Rack Barcode'
+  = f.input :rack_layout_file, :as => :file, :label => 'Rack layout file'
+  
+  
+ = f.buttons do
+  %input{:type => :submit, :value => "Submit"}

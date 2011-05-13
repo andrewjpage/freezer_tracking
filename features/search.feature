@@ -67,6 +67,7 @@ Feature: Search for assets
       | 987654      | 4360133339849 |              |         |               | 0                          | A1  |
       | sub_asset_3 | asset_2       |              |         |               | 0                          | H12 |
 
+  @wip
   Scenario: No results found
     When I fill in "Search query" with "query_with_no_results"
       And I press "Search"
