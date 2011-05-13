@@ -25,4 +25,12 @@ class StorageAreas::StorageAreasController < ApplicationController
      :disposition => 'attachment')
   end
   
+  def search
+    location_for_checkin = StorageArea.find_by_barcode(params[:storage_area_barcode])
+    location_for_checkin ||= Asset.find_by_barcode(params[:storage_area_barcode])
+    
+    render :text => location_for_checkin.full_location
+  end
+  
+  
 end

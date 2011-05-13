@@ -1,7 +1,10 @@
 = semantic_form_for(:reception, :url => receptions_path, :html => { :method => :post } ) do |f|
  = f.inputs :name => 'Check in/out' do
   = f.input :user_barcode, :label => "User Barcode"
-  = f.input :storage_area_barcode, :label => 'Storage Area Barcode'
+  = f.input :storage_area_barcode, :required => false, :label => 'Storage Area Barcode'
   = f.input :asset_barcodes, :as => :text, :label => 'Asset Barcodes'
  = f.buttons do
   %input{:type => :submit, :value => "Submit"}
+  
+%p#user_barcode_results
+%p#storage_area_results Current mode is to Check out. To Check in scan a storage area or container.

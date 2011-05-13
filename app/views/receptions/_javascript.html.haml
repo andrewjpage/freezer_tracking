@@ -1,0 +1,37 @@
+- content_for :page_javascript do
+ :javascript
+    $('#reception_user_barcode').focus();
+    $('#reception_user_barcode').trigger('change');
+    
+    $('#reception_user_barcode').keydown(function (e) {
+      var keyCode = e.keyCode || e.which;
+      if (keyCode == 13) {
+      alert('foo');
+        $('#reception_user_barcode').trigger('change');
+        $('#reception_storage_area_barcode').focus
+        return false;
+      }
+    });
+    
+    $('#reception_storage_area_barcode').keydown(function (e) {
+      var keyCode = e.keyCode || e.which;
+      if (keyCode == 13) {
+        $('#reception_storage_area_barcode').trigger('change');
+        $('#reception_asset_barcodes').focus();
+        return false;
+      }
+    });
+
+    $("#reception_user_barcode").change(function() {
+      $.post('#{search_users_path}',{ user_barcode: $('#reception_user_barcode')[0].value}, function(data) {
+        $("#user_barcode_results").html(data);
+      });
+    });
+    
+    $("#reception_storage_area_barcode").change(function() {
+      $.post('#{search_storage_areas_path}',{ storage_area_barcode: $('#reception_storage_area_barcode')[0].value}, function(data) {
+        $("#storage_area_results").html(data);
+      });
+    });
+
+

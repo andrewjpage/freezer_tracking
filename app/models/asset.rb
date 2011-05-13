@@ -51,6 +51,9 @@ class Asset < ActiveRecord::Base
       )
   end
 
+  def full_location
+    "#{storage_area.try(:name)}, #{storage_area.try(:freezer).try(:name)}, #{storage_area.try(:freezer).try(:building_area).try(:name)}"
+  end
 
 
 end

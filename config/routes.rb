@@ -26,6 +26,9 @@ FreezerTracking::Application.routes.draw do
     member do
       get :assets_spreadsheet
     end
+    collection do
+      post :search
+    end
   end
   
   
@@ -44,6 +47,12 @@ FreezerTracking::Application.routes.draw do
   
   resources :asset_audits, :only => [:index]
   resources :searches, :only => [:index] do 
+    collection do 
+      post :search
+    end
+  end
+  
+  resources :users do 
     collection do 
       post :search
     end

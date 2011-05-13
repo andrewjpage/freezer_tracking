@@ -17,4 +17,8 @@ class StorageArea < ActiveRecord::Base
   def prefix
     'SA'
   end
+  
+  def full_location
+    "#{name}, #{freezer.try(:name)}, #{freezer.try(:building_area).try(:name)}"
+  end
 end
